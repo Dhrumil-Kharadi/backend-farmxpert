@@ -72,7 +72,7 @@ def start_server():
     # Ensure the repo root is on PYTHONPATH so `import farmxpert` works
     # regardless of where this script is invoked from.
     script_dir = Path(__file__).resolve().parent
-    repo_root = script_dir.parent
+    repo_root = script_dir
     env = os.environ.copy()
     existing_pythonpath = env.get("PYTHONPATH", "")
     env["PYTHONPATH"] = str(repo_root) + (os.pathsep + existing_pythonpath if existing_pythonpath else "")
@@ -101,7 +101,7 @@ def main():
     
     # Check if the project structure is present (works from repo root or farmxpert dir)
     script_dir = Path(__file__).resolve().parent
-    repo_root = script_dir.parent
+    repo_root = script_dir
     expected_api_main = script_dir / "interfaces" / "api" / "main.py"
     if not expected_api_main.exists():
         print("❌ Could not locate interfaces/api/main.py next to start.py")

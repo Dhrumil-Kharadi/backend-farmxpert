@@ -27,13 +27,12 @@ services:
           name: farmxpert-redis
           property: connectionString
 
+  - type: redis
+    name: farmxpert-redis
+    plan: free
+
 databases:
   - name: farmxpert-db
     databaseName: farmxpert
     user: farmxpert_user
-    plan: free
-
-services:
-  - type: redis
-    name: farmxpert-redis
     plan: free
